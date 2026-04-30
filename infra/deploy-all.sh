@@ -37,12 +37,12 @@ echo "[1/6] Creando RDS..."
 bash ./01-create-rds.sh
 
 echo ""
-echo "[2/6] Creando S3..."
-bash ./02-create-s3.sh
+echo "[2/6] Creando SQS..."
+bash ./02-create-sqs.sh
 
 echo ""
-echo "[3/6] Creando SQS..."
-bash ./03-create-sqs.sh
+echo "[3/6] Creando S3..."
+bash ./03-create-s3.sh
 
 echo ""
 echo "[4/6] Creando SNS..."
