@@ -33,3 +33,8 @@ npm-debug.log*
 
 # Kubernetes
 kubeconfig
+
+# Infra secrets
+infra/.env
+infra/.env.bak
+infra/*.env.bak
