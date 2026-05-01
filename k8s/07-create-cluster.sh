@@ -13,18 +13,6 @@ echo "  CREACIÓN DE CLUSTER EKS"
 echo "============================================"
 echo ""
 
-# Validar que eksctl está instalado
-if ! command -v eksctl &> /dev/null; then
-    echo "ERROR: eksctl no está instalado."
-    exit 1
-fi
-
-# Validar que kubectl está instalado
-if ! command -v kubectl &> /dev/null; then
-    echo "ERROR: kubectl no está instalado."
-    exit 1
-fi
-
 # verificar si el cluster ya existe
 if eksctl get cluster --name "$CLUSTER_NAME" --region "$REGION" 2>/dev/null | grep -q "$CLUSTER_NAME"; then
     echo "El cluster $CLUSTER_NAME ya existe."

@@ -24,7 +24,6 @@ fi
 # Validar que psql está instalado
 if ! command -v psql &> /dev/null; then
     echo "ERROR: psql no está instalado."
-    echo "Instálalo con: sudo apt-get install -y postgresql-client"
     exit 1
 fi
 
@@ -54,4 +53,4 @@ PGPASSWORD="$RDS_DB_PASSWORD" psql \
     -c "\dt"
 
 echo ""
-echo "==> Siguiente: ya terminaste la infra base. Sigue con el Paso 7 (cluster EKS)."
+echo "==> Siguiente: Paso 7 (cluster EKS)."
