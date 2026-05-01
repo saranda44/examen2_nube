@@ -13,8 +13,8 @@ export async function getDbPool() {
     const creds = await getSecret('examen2-db-credentials');
 
     pool = new Pool({
-      host: creds.rdsHost,
-      user: creds.username,
+      host: creds.host,
+      user: creds.user,
       password: creds.password,
       database: creds.dbname,
       port: creds.port,
