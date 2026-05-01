@@ -38,3 +38,5 @@ kubeconfig
 infra/.env
 infra/.env.bak
 infra/*.env.bak
+
+k8s/cluster.generated.yaml

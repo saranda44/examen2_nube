@@ -1,0 +1,22 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: examen2-cluster
+  region: us-east-1
+  version: "1.30"
+
+iam:
+  serviceRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/LabRole
+
+managedNodeGroups:
+  - name: examen2-nodes
+    instanceType: t3.medium
+    desiredCapacity: 2
+    minSize: 2
+    maxSize: 2
+    volumeSize: 20
+    # Los nodos también usan LabRole para que los pods puedan acceder
+    # a Secrets Manager, S3, SQS, SNS 
+    iam:
+      instanceRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/LabRole
