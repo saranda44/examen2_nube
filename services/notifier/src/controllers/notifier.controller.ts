@@ -56,6 +56,7 @@ export async function notifyClient(req: Request, res: Response) {
         <p style="color: #999; font-size: 12px; margin-top: 20px;">
             Este es un mensaje automático. Por favor no respondas a este correo.
         </p>
+        
     </div>
 </body>
 </html>
