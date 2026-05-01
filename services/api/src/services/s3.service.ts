@@ -28,11 +28,11 @@ export async function descargarPDF(rfc: string, folio: string) {
 
         if (!byteArray) throw new Error("El cuerpo del objeto está vacío");
 
-        //modificar metadatos
+        //modificar metadatos 
         const copyCommand = new CopyObjectCommand({
             Bucket: bucketName,
             Key: objectKey,
-            CopySource: `${bucketName}/${objectKey}`, // El origen es el mismo archivo
+            CopySource: `${bucketName}/${encodeURIComponent(objectKey)}`,
             MetadataDirective: "REPLACE",
             ContentType: "application/pdf",
             Metadata: {
@@ -40,7 +40,9 @@ export async function descargarPDF(rfc: string, folio: string) {
                 "nota-descargada": "true"
             }
         });
-        await s3Client.send(copyCommand);
+        s3Client.send(copyCommand).catch(err =>
+            console.error("Error marcando nota como descargada:", err)
+        );
 
         return Buffer.from(byteArray);
     } catch (error) {

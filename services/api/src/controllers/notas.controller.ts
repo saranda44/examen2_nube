@@ -30,8 +30,9 @@ export async function descargarNota(req: Request, res: Response) {
         // decir al navegador que es un PDF y damos nombre del archivo
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', `attachment; filename="Nota-${folio}.pdf"`);
+        res.setHeader('Content-Length', pdfBuffer.length);
 
-        res.send(pdfBuffer);
+        res.end(pdfBuffer);
     } catch (error) {
         console.error("Error en Controller:", error);
         res.status(500).json({ message: "Error al descargar la nota" });
