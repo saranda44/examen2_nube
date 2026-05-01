@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: receipt-worker-deployment
+  labels:
+    app: receipt-worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: receipt-worker
+  template:
+    metadata:
+      labels:
+        app: receipt-worker
+    spec:
+      containers:
+        - name: receipt-worker
+          image: saranda06/receipt-worker-examen2:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: examen2-config

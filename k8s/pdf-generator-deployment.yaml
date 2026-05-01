@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdf-generator-deployment
+  labels:
+    app: pdf-generator
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pdf-generator
+  template:
+    metadata:
+      labels:
+        app: pdf-generator
+    spec:
+      containers:
+        - name: pdf-generator
+          image: saranda06/pdf-generator-examen2:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          envFrom:
+            - configMapRef:
+                name: examen2-config

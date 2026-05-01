@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: examen2-config
+  labels:
+    app: examen2
+data:
+  AWS_REGION: "us-east-1"
+  PDF_GENERATOR_URL: "http://pdf-generator-service:8081"
+  NOTIFIER_URL: "http://notifier-service:8082"
