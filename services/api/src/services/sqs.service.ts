@@ -2,7 +2,7 @@ import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
 import { getSecret } from "./secrets.service";
 
 const sqsClient = new SQSClient({
-    region: "us-east-1",
+    region: process.env.AWS_REGION
 });
 
 // Publicar mensaje a SQS cuando se crea una nota

@@ -2,7 +2,7 @@ import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { getSecret } from './secrets.service';
 
 const s3Client = new S3Client({
-    region: 'us-east-1'
+    region: process.env.AWS_REGION
 });
 
 // Sube un PDF a S3 con los 3 metadatos requeridos.

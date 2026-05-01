@@ -2,8 +2,8 @@ import { S3Client, GetObjectCommand, CopyObjectCommand } from '@aws-sdk/client-s
 import { getSecret } from './secrets.service';
 
 const s3Client = new S3Client({
-    region: 'us-east-1'
-})
+    region: process.env.AWS_REGION
+});
 
 //funcion para descargar pdf -> devuelve Buffer
 export async function descargarPDF(rfc: string, folio: string) {

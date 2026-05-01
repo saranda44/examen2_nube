@@ -2,7 +2,7 @@ import { SNSClient, PublishCommand, SubscribeCommand } from "@aws-sdk/client-sns
 import { getSecret } from "./secrets.service";
 
 const snsClient = new SNSClient({
-    region: process.env.AWS_REGION || "us-east-1",
+    region: process.env.AWS_REGION,
 });
 
 // Suscribe al cliente al topic con un FilterPolicy basado en su cliente_id

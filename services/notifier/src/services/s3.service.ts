@@ -2,7 +2,7 @@ import { S3Client, HeadObjectCommand, CopyObjectCommand } from '@aws-sdk/client-
 import { getSecret } from './secrets.service';
 
 const s3Client = new S3Client({
-    region: process.env.AWS_REGION || "us-east-1"
+    region: process.env.AWS_REGION
 });
 
 // Incrementa veces-enviado en 1 y actualiza hora-envio al timestamp actual.
